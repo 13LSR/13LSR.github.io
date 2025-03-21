@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>北野哲 - 个人主页</title>
+    <link rel="icon" type="image/x-icon" href="bitbug_favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -101,6 +102,16 @@
             transform: none;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
+
+        .grayscale-image {
+            filter: brightness(0.8) contrast(1.1);
+            transition: all 0.5s ease;
+        }
+
+        .grayscale-image:hover {
+            filter: brightness(1.1) contrast(1.2);
+            transform: scale(1.02);
+        }
     </style>
 </head>
 <body>
@@ -183,8 +194,8 @@
     <section id="about" class="content-section px-6">
         <div class="max-w-6xl mx-auto">
             <div class="grid md:grid-cols-2 gap-24 items-center">
-                <div class="image-overlay rounded-2xl overflow-hidden">
-                    <img src="https://picsum.photos/800/600?random=2" alt="关于我" class="w-full h-full object-cover">
+                <div class="image-overlay rounded-2xl overflow-hidden bg-gray-100">
+                    <img src="about.jpg" alt="关于我" class="w-full h-full object-cover grayscale-image">
                 </div>
                 <div>
                     <h2 class="text-5xl font-bold mb-12">关于我</h2>
@@ -254,8 +265,13 @@
     </section>
 
     <footer class="py-12 px-6 bg-[#D4D6C8]">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <p>© 2024 北野哲</p>
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex flex-col items-center md:items-start gap-2">
+                <p>© 2024 北野哲</p>
+                <a href="https://hits.sh/13lsr.github.io/">
+                    <img alt="访问量统计" src="https://hits.sh/13lsr.github.io.svg?label=浏览量&extraCount=166631&color=fce184&labelColor=9f9f9f"/>
+                </a>
+            </div>
             <div class="flex gap-6">
                 <a href="http://www.coolapk.com/u/26727781" class="text-2xl hover:opacity-70">
                     <i class="fab fa-android"></i>
