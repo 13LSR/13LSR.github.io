@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北野哲 - 个人主页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        :root {
+            --bg-cream: #F5F5F0;
+            --text-dark: #1A1A1A;
+            --accent-green: #D4D6C8;
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+        }
+        
+        .mega-title {
+            font-size: clamp(3rem, 15vw, 8rem);
+            line-height: 1;
+            font-weight: 700;
+        }
+        
+        .content-section {
+            margin: 15vh 0;
+        }
+        
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+        }
+
+        .image-overlay {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .image-overlay:hover::after {
+            background: rgba(0,0,0,0.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: none;
+            }
+            
+            .mobile-menu.active {
+                display: block;
+            }
+        }
+
+        /* 导航栏滚动效果 */
+        nav {
+            transition: transform 0.3s ease;
+        }
+
+        nav.scroll-down {
+            transform: translate3d(0, -100%, 0);
+        }
+
+        nav.scroll-up {
+            transform: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-[var(--bg-cream)] bg-opacity-90 backdrop-blur-sm">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-bold">北野哲</a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link">关于我</a>
+                    <a href="#projects" class="nav-link">作品展示</a>
+                    <a href="#contact" class="nav-link">联系方式</a>
+                    <div class="flex items-center space-x-4">
+                        <a href="http://www.coolapk.com/u/26727781" class="text-lg hover:opacity-70">
+                            <i class="fab fa-android"></i>
+                        </a>
+                        <a href="https://www.xiaohongshu.com/user/profile/63f8706e000000000f010e83" class="text-lg hover:opacity-70">
+                            <i class="fas fa-heart"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu md:hidden py-4" id="mobile-menu">
+                <div class="flex flex-col space-y-4">
+                    <a href="#about" class="nav-link">关于我</a>
+                    <a href="#projects" class="nav-link">作品展示</a>
+                    <a href="#contact" class="nav-link">联系方式</a>
+                    <div class="flex items-center space-x-4 pt-4">
+                        <a href="http://www.coolapk.com/u/26727781" class="text-lg hover:opacity-70">
+                            <i class="fab fa-android"></i>
+                        </a>
+                        <a href="https://www.xiaohongshu.com/user/profile/63f8706e000000000f010e83" class="text-lg hover:opacity-70">
+                            <i class="fas fa-heart"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/1920/1080?random=1" alt="背景图片" class="w-full h-full object-cover opacity-20">
+        </div>
+        <div class="relative z-10 px-6 min-h-screen flex flex-col justify-center">
+            <div class="max-w-6xl mx-auto w-full">
+                <h1 class="mega-title mb-12">北野哲</h1>
+                <p class="text-xl md:text-2xl max-w-2xl leading-relaxed mb-8">
+                    想摆不能摆的大学生<br>
+                    数字游民 × 网创者 × 在线副业组织者
+                </p>
+                <div class="h-px w-24 bg-black mb-8"></div>
+                <div class="flex gap-8 items-center">
+                    <a href="http://www.coolapk.com/u/26727781" class="text-lg hover:underline flex items-center">
+                        <i class="fab fa-android mr-2"></i>酷安
+                    </a>
+                    <a href="https://www.xiaohongshu.com/user/profile/63f8706e000000000f010e83" class="text-lg hover:underline flex items-center">
+                        <i class="fas fa-heart mr-2"></i>小红书
+                    </a>
+                    <a href="#contact" class="text-lg hover:underline flex items-center">
+                        <i class="fab fa-weixin mr-2"></i>微信
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="content-section px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-24 items-center">
+                <div class="image-overlay rounded-2xl overflow-hidden">
+                    <img src="https://picsum.photos/800/600?random=2" alt="关于我" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h2 class="text-5xl font-bold mb-12">关于我</h2>
+                    <p class="text-xl mb-8">大二学生，2年网创经验，专注于帮助副业小白实现收入增长。已成功帮助500+人实现副业突破。</p>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle mr-3 text-green-600"></i>
+                            副业信息差咨询专家
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle mr-3 text-green-600"></i>
+                            数字游民生活方式践行者
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle mr-3 text-green-600"></i>
+                            在线副业社群组织者
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="content-section px-6 bg-[#D4D6C8] py-32">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl font-bold mb-24">作品展示</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <a href="http://bylsr.ysepan.com/" class="block hover-lift">
+                    <div class="image-overlay rounded-2xl overflow-hidden">
+                        <img src="https://picsum.photos/800/600?random=3" alt="阿蓝宝藏库" class="w-full aspect-video object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 p-8 text-white z-20">
+                            <h3 class="text-2xl font-bold mb-2">阿蓝宝藏库</h3>
+                            <p class="text-lg opacity-90">资源分享平台</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="block hover-lift">
+                    <div class="image-overlay rounded-2xl overflow-hidden">
+                        <img src="https://picsum.photos/800/600?random=4" alt="公众号" class="w-full aspect-video object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 p-8 text-white z-20">
+                            <h3 class="text-2xl font-bold mb-2">公众号</h3>
+                            <p class="text-lg opacity-90">杂七杂八的老实人</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="content-section px-6 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/1920/1080?random=5" alt="联系背景" class="w-full h-full object-cover opacity-10">
+        </div>
+        <div class="relative z-10 max-w-6xl mx-auto">
+            <h2 class="text-5xl font-bold mb-24">联系我</h2>
+            <div class="max-w-xl">
+                <div class="bg-white bg-opacity-80 p-8 rounded-2xl backdrop-blur-sm">
+                    <p class="text-xl mb-8">微信: byzxj_1106</p>
+                    <button class="text-lg border-2 border-black px-8 py-3 hover:bg-black hover:text-white transition-colors">
+                        复制微信号
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 bg-[#D4D6C8]">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <p>© 2024 北野哲</p>
+            <div class="flex gap-6">
+                <a href="http://www.coolapk.com/u/26727781" class="text-2xl hover:opacity-70">
+                    <i class="fab fa-android"></i>
+                </a>
+                <a href="https://www.xiaohongshu.com/user/profile/63f8706e000000000f010e83" class="text-2xl hover:opacity-70">
+                    <i class="fas fa-heart"></i>
+                </a>
+                <a href="#contact" class="text-2xl hover:opacity-70">
+                    <i class="fab fa-weixin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 复制微信号功能
+        document.querySelector('button').addEventListener('click', function() {
+            navigator.clipboard.writeText('byzxj_1106');
+            this.textContent = '已复制!';
+            setTimeout(() => {
+                this.textContent = '复制微信号';
+            }, 2000);
+        });
+
+        // 移动端菜单控制
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileMenuButton.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // 导航栏滚动效果
+        const nav = document.querySelector('nav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                nav.classList.remove('scroll-up');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !nav.classList.contains('scroll-down')) {
+                // 向下滚动
+                nav.classList.remove('scroll-up');
+                nav.classList.add('scroll-down');
+            } else if (currentScroll < lastScroll && nav.classList.contains('scroll-down')) {
+                // 向上滚动
+                nav.classList.remove('scroll-down');
+                nav.classList.add('scroll-up');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // 关闭移动端菜单
+                    mobileMenu.classList.remove('active');
+                    const icon = mobileMenuButton.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
